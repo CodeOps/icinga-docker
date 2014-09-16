@@ -10,12 +10,17 @@ Various Docker Containers used for testing.
 
 https://docs.docker.com/installation
 
+### Fedora 20
+
+    # yum install docker-io
+
+
 ### Debian Jessie
 
-    $ sudo apt-get update
-    $ sudo apt-get install docker.io
-    $ sudo ln -sf /usr/bin/docker.io /usr/local/bin/docker
-    $ sudo sed -i '$acomplete -F _docker docker' /etc/bash_completion.d/docker.io
+    # apt-get update
+    # apt-get install docker.io
+    # ln -sf /usr/bin/docker.io /usr/local/bin/docker
+    # sed -i '$acomplete -F _docker docker' /etc/bash_completion.d/docker.io
 
 
 ## Containers
@@ -24,32 +29,40 @@ https://docs.docker.com/installation
 
 #### centos6
 
+Requires an import of the [centos docker images](http://wiki.centos.org/Cloud/Docker):
+
+    # docker pull centos
+    # docker images centos
+
 > **TODO**
 >
 > Install DB backend, GUIs, configure graphite
 
-    $ cd icinga2x/centos6 && sudo ./run
+Navigate into the directory with the `Dockerfile` file and run
+the docker image using the provided `run` script:
+
+    # cd icinga2x/centos6 && ./run
 
 Repositories:
 
-  Repository		| Url
+  Repository		    | Url
   ----------------------|----------------------
-  EPEL			| https://fedoraproject.org/wiki/EPEL
-  Icinga Snapshots	| http://packages.icinga.org/epel/
+  EPEL			        | https://fedoraproject.org/wiki/EPEL
+  Icinga Snapshots	    | http://packages.icinga.org/epel/
 
 Software:
 
-  Name			| Packages
+  Name			        | Packages
   ----------------------|----------------------
-  base			| wget vim mailx
-  icinga2		| icinga2 icinga2-bin icinga2-common icinga2-doc icinga2-ido-mysql
-  httpd			| httpd
-  graphite		| python-whisper python-carbon graphite-web
+  base			        | wget vim mailx
+  icinga2		        | icinga2 icinga2-bin icinga2-common icinga2-doc icinga2-ido-mysql
+  httpd			        | httpd
+  graphite		        | python-whisper python-carbon graphite-web
 
 Configuration:
 
-  Name			| Location
+  Name			        | Location
   ----------------------|----------------------
-  icinga2		| /etc/icinga2/conf.d
+  icinga2		        | /etc/icinga2/conf.d
 
 

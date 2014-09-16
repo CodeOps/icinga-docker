@@ -1,7 +1,7 @@
 #!/bin/sh
 cd `dirname -- $0`
 DIR=`pwd`
-DOCKERBIN=docker.io
+DOCKERBIN=docker
 DOCKERPROJECT=icinga2x
 
 cd docker
@@ -10,4 +10,4 @@ $DOCKERBIN build -t $DOCKERPROJECT --rm .
 
 command="/bin/bash"
 
-$DOCKERBIN run -u `id -u` -v $DIR/docker/icinga2-conf:/etc/icinga2/conf.d/tests -t -i --rm icinga2 $command
+$DOCKERBIN run -u `id -u` -v $DIR/docker/icinga2-conf:/etc/icinga2/conf.d/tests -t -i --rm $DOCKERPROJECT $command
